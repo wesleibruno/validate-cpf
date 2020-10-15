@@ -54,8 +54,13 @@ ValidaCPF.prototype.criaDigito = function(cpfParcial) {
     return digito > 9 ? '0' : String(digito);
 }
 ValidaCPF.prototype.isSequencia = function() {
-    
+    const sequencia = this.cpfLimpo[0].repeat(this.cpfLimpo.length);
+    return sequencia === this.cpfLimpo;
 }
 const cpf = new ValidaCPF('070.987.720-03');
-// console.log(cpf.cpfLimpo);
-console.log(cpf.valida());
+
+if(cpf.valida()) {
+    console.log('Cpf válido');
+}else{
+    console.log('Cpf Inválido')
+}
